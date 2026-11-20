@@ -1,0 +1,81 @@
+* { box-sizing: border-box; }
+:root { font-family: "Yu Gothic", "Meiryo", sans-serif; color: #17232c; }
+body { margin: 0; min-height: 100vh; background: #f1efe9; }
+button { font: inherit; cursor: pointer; }
+.topbar { display:flex; justify-content:space-between; align-items:center; gap:16px; padding:12px 22px; background:#243d50; color:white; }
+.title { font-size:clamp(18px,2vw,27px); font-weight:800; }
+.top-right { display:flex; align-items:center; gap:14px; font-size:18px; font-weight:700; }
+.topbar button, .secondary { padding:9px 16px; border:0; border-radius:8px; background:#fff; color:#203647; font-weight:700; }
+.screen { width:min(1400px, calc(100% - 32px)); min-height:calc(100vh - 90px); margin:16px auto; padding:clamp(16px,2.5vw,30px); border-radius:16px; background:#fffdf8; box-shadow:0 3px 16px #00000012; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:12px; }
+.screen[hidden] { display:none !important; }
+h1 { margin:0; font-size:clamp(27px,3vw,42px); }
+.intro, .sub { margin:0 0 12px; font-size:clamp(18px,2vw,25px); }
+.levels { display:flex; flex-wrap:wrap; justify-content:center; gap:18px; width:100%; margin:18px 0; }
+.level { min-width:230px; min-height:125px; padding:18px; border:0; border-radius:14px; color:white; display:flex; flex-direction:column; justify-content:center; gap:12px; box-shadow:0 4px 0 #0002; }
+.level strong { font-size:27px; }
+.level span { font-size:17px; }
+.easy { background:#287b57; } .medium { background:#286b9c; } .hard { background:#80552b; }
+.staff { color:#4b555c; font-size:16px; }
+.timer { display:flex; align-items:baseline; gap:10px; margin:0 0 8px; font-size:24px; font-weight:700; }
+.timer strong { color:#b52e22; font-size:clamp(58px,7vw,82px); line-height:1; min-width:1.1em; }
+.memory-grid { width:100%; display:grid; grid-template-columns:repeat(5, minmax(0,1fr)); gap:clamp(8px,1.5vw,18px); align-items:center; }
+.memory-card {
+  height:clamp(210px,42vh,390px);
+  min-width:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:4px;
+  overflow:hidden;
+  background:white;
+  border:2px solid #d8d4cb;
+  border-radius:12px;
+}
+.memory-card img {
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  transform:scale(1.00);
+}
+.answer-grid { width:100%; display:grid; grid-template-columns:repeat(var(--choice-count, 2), minmax(0,1fr)); gap:clamp(12px,2vw,24px); align-items:stretch; justify-content:center; }
+.answer-card {
+  min-width:0;
+  height:clamp(250px,45vh,420px);
+  padding:6px;
+  overflow:hidden;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  border:4px solid #c7cdd1;
+  border-radius:14px;
+  background:white;
+}
+.answer-card:hover, .answer-card:focus-visible { border-color:#1d689e; outline:3px solid #8dc6eb; }
+.answer-card img {
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  transform:scale(1.00);
+}
+.correct-title { color:#167447; font-size:clamp(36px,4vw,54px); }
+.wrong-title { color:#a83232; }
+.review { width:100%; display:flex; flex-direction:column; gap:14px; }
+.review-section { width:100%; }
+.review-section h2 { margin:0 0 8px; font-size:clamp(18px,2vw,24px); }
+.review-memory-grid { grid-template-columns:repeat(5,minmax(0,1fr)); }
+.review-memory-grid .memory-card { height:clamp(105px,20vh,190px); }
+.review-answer-grid { width:min(900px,100%); margin:0 auto; }
+.review-answer-grid .answer-card { height:clamp(130px,23vh,220px); border-width:3px; }
+.answer-card.is-correct, .memory-card.is-correct {
+  border-color:#14834e;
+  animation:blink 0.9s steps(2,start) infinite;
+}
+@keyframes blink { to { border-color:transparent; background:#dff5e7; } }
+.action { border:0; border-radius:10px; padding:13px 30px; min-width:200px; background:#205f8e; color:white; font-size:21px; font-weight:800; }
+.action:hover { background:#17496e; }
+.finish-buttons { display:flex; flex-wrap:wrap; justify-content:center; gap:12px; }
+@media (max-width:850px) {
+  .memory-card { height:230px; }
+  .answer-card { height:250px; }
+  .topbar { padding:10px 12px; }
+}

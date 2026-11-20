@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>昭和の思い出・記憶力ゲーム</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="title">昭和の思い出・記憶力ゲーム</div>
+    <div class="top-right">
+      <span id="progress" aria-live="polite"></span>
+      <button id="fullscreenBtn" type="button">全画面表示</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="startScreen" class="screen">
+      <h1>難易度を選んでください</h1>
+      <p class="intro">5枚のイラストを15秒間覚えてから、質問に合う絵を選びます。</p>
+      <div class="levels">
+        <button class="level easy" data-level="easy">
+          <strong>かんたん</strong><span>選択肢 2枚・全10問</span>
+        </button>
+        <button class="level medium" data-level="medium">
+          <strong>少しむずかしい</strong><span>選択肢 3枚・全10問</span>
+        </button>
+        <button class="level hard" data-level="hard">
+          <strong>もっとむずかしい</strong><span>選択肢 4枚・全10問</span>
+        </button>
+      </div>
+      <p class="staff">※画面の操作はスタッフの方が行ってください。</p>
+    </section>
+
+    <section id="memoryScreen" class="screen" hidden>
+      <h1>この5枚のイラストを覚えてください</h1>
+      <div class="timer"><span>あと</span><strong id="countdown">15</strong><span>秒</span></div>
+      <div id="memoryGrid" class="memory-grid"></div>
+    </section>
+
+    <section id="questionScreen" class="screen" hidden>
+      <h1 id="questionText">「黒電話」はどれでしょう？</h1>
+      <p class="sub">下の選択肢から選んでください。</p>
+      <div id="answerGrid" class="answer-grid"></div>
+    </section>
+
+    <section id="correctScreen" class="screen" hidden>
+      <h1 class="correct-title">正解！</h1>
+      <p class="sub">よく覚えていましたね。</p>
+      <div class="review">
+        <div class="review-section">
+          <h2>最初に覚えた5枚</h2>
+          <div id="reviewMemoryGrid" class="memory-grid review-memory-grid"></div>
+        </div>
+        <div class="review-section">
+          <h2>答えの選択肢（正解が点滅しています）</h2>
+          <div id="reviewAnswerGrid" class="answer-grid review-answer-grid"></div>
+        </div>
+      </div>
+      <button id="nextBtn" class="action">次の問題へ</button>
+    </section>
+
+    <section id="wrongScreen" class="screen" hidden>
+      <h1 class="wrong-title">残念でした。もう一度挑戦！</h1>
+      <p class="sub">もう一度、5枚のイラストを覚えましょう。</p>
+      <button id="retryBtn" class="action">もう一度見る</button>
+    </section>
+
+    <section id="finishScreen" class="screen" hidden>
+      <h1>全10問終了！</h1>
+      <p id="finishText" class="intro">最後までよく頑張りました。</p>
+      <div class="finish-buttons">
+        <button id="againBtn" class="action">同じ難易度でもう一度</button>
+        <button id="levelsBtn" class="secondary">難易度選択へ戻る</button>
+      </div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
