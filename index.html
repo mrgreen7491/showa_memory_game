@@ -77,5 +77,16 @@
     </section>
   </main>
   <script src="script.js"></script>
+  <script>
+  /* 全画面ボタンの文字を、状態に合わせて切り替える（スタッフ用） */
+  (function(){
+    var b=document.getElementById('fullscreenBtn');
+    if(!b) return;
+    if(!(document.fullscreenEnabled||document.webkitFullscreenEnabled)){ b.style.display='none'; return; }
+    function upd(){ b.textContent=(document.fullscreenElement||document.webkitFullscreenElement)?'全画面をやめる':'全画面表示'; b.blur(); }
+    document.addEventListener('fullscreenchange',upd);
+    document.addEventListener('webkitfullscreenchange',upd);
+  })();
+  </script>
 </body>
 </html>

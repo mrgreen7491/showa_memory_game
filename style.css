@@ -79,3 +79,16 @@ h1 { margin:0; font-size:clamp(27px,3vw,42px); }
   .answer-card { height:250px; }
   .topbar { padding:10px 12px; }
 }
+/* ==========================================================
+   テレビ表示（横長の画面で、正解の画面も1画面に収める）※2026-11-25追加
+========================================================== */
+@media (min-width: 900px) and (min-aspect-ratio: 5/4) {
+  #correctScreen { gap: 1vh; padding-top: 1.4vh; padding-bottom: 1.4vh; }
+  #correctScreen .correct-title { font-size: min(54px, 5.4vh); }
+  #correctScreen .sub { font-size: min(25px, 2.8vh); margin: 0; }
+  .review { gap: 1.2vh; }
+  .review-section h2 { font-size: min(24px, 2.6vh); margin: 0 0 0.6vh; }
+  .review-memory-grid .memory-card { height: min(190px, 18vh); }
+  .review-answer-grid .answer-card { height: min(220px, 21vh); }
+  #nextBtn { padding: 1.2vh 3vw; font-size: min(21px, 2.8vh); }
+}
