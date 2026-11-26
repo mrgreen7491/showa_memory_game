@@ -92,3 +92,21 @@ h1 { margin:0; font-size:clamp(27px,3vw,42px); }
   .review-answer-grid .answer-card { height: min(220px, 21vh); }
   #nextBtn { padding: 1.2vh 3vw; font-size: min(21px, 2.8vh); }
 }
+
+
+/* ==========================================================
+   キャラクター（はじめの画面だけ。「せつめいを きく」で、声に合わせて口が動く）
+========================================================== */
+.introbtn { margin: 4px 0 6px; padding: 12px 28px; border: 0; border-radius: 12px; color: #fff; font-size: clamp(18px,2vw,26px); font-weight: 800; background: linear-gradient(135deg,#d8a02a,#b87d12); box-shadow: 0 4px 0 #7e5408; }
+.introbtn:active { transform: translateY(3px); }
+#startScreen .chara { display: none; }
+#startScreen .smain { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; }
+@media (min-width: 900px) and (min-aspect-ratio: 5/4) {
+  #startScreen { flex-direction: row; gap: 3vw; width: calc(100% - 32px); }
+  #startScreen .chara { display: block; flex: none; width: min(30vw, 56vh); }
+  #startScreen .chara img { display: block; width: 100%; height: auto; border-radius: 2vh; box-shadow: 0 .8vh 2vh rgba(0,0,0,.22); }
+  #startScreen .smain { flex: 1; min-width: 0; }
+  #startScreen .levels { gap: 1.6vh 1.2vw; }
+  #startScreen .level { min-width: 0; flex: 1 1 28%; }
+  #startScreen .level strong { font-size: min(27px, 2.6vw); }
+}
